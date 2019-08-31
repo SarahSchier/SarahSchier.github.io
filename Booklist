@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}List of works{% endblock %}
+{% block style %}
+    ul {list-style: none;} li {font-family: 'Roboto Slab', serif;} hr {border-bottom: 1px solid #ca987a;}
+{% endblock %}
+{% block head %}
+<script>
+function add_book() {
+    fetch('/api/create_work')
+        .then(function(response){window.location.reload(false);})
+}
+function add_publication(work_id) {
+    let name = document.getElementById('name_'+work_id).value;
+    let data = {work_id: work_id, name: name}; console.log(data);
+    fetch('/api/add_publication', 
+        {method: 'POST', body: JSON.stringify(data), headers:{'Content-Type': 'application/json'}})
+        .then(function(){window.location.reload(false);})
+}
+</script>
+{% endblock %}
+
+{% block tabs %}<a class="active">Tab</a><a>Another tab</a>{% endblock %}
+{% block content %}
+    <h1></h1>
+    {% for work in works %}
+        {% for tag in work.tags %}
+             <span style="padding: 5px; border: 1px solid black; border-radius: 5px;">{{tag.type}}: {{tag.name}}</span>
+        {% endfor %}
+        <ul>
+        {% for publication in work.publications %}
+            <li>{{publication}}</li>
+        {% endfor %}
+        </ul>
+    <button onclick="document.getElementById('work_{{work.id}}').style.display='block';">add publication</button>
+    <div id="work_{{work.id}}" style="display:none;">
+        <input type="text" name="name" id="name_{{work.id}}" placeholder="title">
+        <button onclick="add_publication({{work.id}});">save</button>
+    </div>
+    <hr><br>
+    {% endfor %}
+    <button onclick="add_book();">add book</button>
+{% endblock %}
