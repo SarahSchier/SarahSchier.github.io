@@ -9,8 +9,7 @@
         
         ul {list-style: none;} 
         li {font-family: 'Roboto Slab', serif;
-        font-size: 20px;
-        color: rgb(26,74,9);}
+        font-size: 20px;}
         hr {border-bottom: 1px solid #ca987a;}
         
 </style>
@@ -67,11 +66,14 @@ function add_publication(work_id) {
         <br>
        
     <button onclick="document.getElementById('work_1').style.display='block';">add publication</button>
+        
         <br>
+        
     <div id="work_1" style="display:none;">
         <input type="text" name="name" id="name_1" placeholder="title">
         <button onclick="add_publication(1);">save</button>
     </div>
+        
     <br>
     <hr>
              
@@ -84,6 +86,7 @@ function add_publication(work_id) {
             <li>Alice&#39;s Adventures in Wonderland</li>
        
         </ul>
+        
         <br>
         <br>
         <br>
@@ -92,12 +95,16 @@ function add_publication(work_id) {
         
         <br>
         <br>
+        
         <button onclick="document.getElementById('work_2').style.display='block';">add publication</button>
+        
         <br>
+        
     <div id="work_2" style="display:none;">
         <input type="text" name="name" id="name_2" placeholder="title">
         <button onclick="add_publication(2);">save</button>
     </div>
+        
     <br>
     <hr>
     
