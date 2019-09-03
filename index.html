@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="/static/style.css" />
     <style>
         
-        ul {list-style: none;} li {font-family: 'Roboto Slab', serif;} li {50px} hr {border-bottom: 1px solid #ca987a;}
+        ul {list-style: none;} 
+        li {font-family: 'Roboto Slab', serif;
+        font-size: 20px
+        color: rgb(26,74,9);}
+        hr {border-bottom: 1px solid #ca987a;}
+        
 </style>
     
 <script>
@@ -88,6 +93,7 @@ function add_publication(work_id) {
         <br>
         <br>
         <button onclick="document.getElementById('work_2').style.display='block';">add publication</button>
+        <br>
     <div id="work_2" style="display:none;">
         <input type="text" name="name" id="name_2" placeholder="title">
         <button onclick="add_publication(2);">save</button>
